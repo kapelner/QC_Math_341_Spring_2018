@@ -66,7 +66,7 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 * Midterm II
 
 [(practice exam 1)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 1 solutions)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2_solutions.pdf)
-[(practice exam 2)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 2 solutions)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2_solutions.pdf) Problem 1a--d and a subset of Problem 3 found in HW6 above.
+[(practice exam 2)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 2 solutions)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2_solutions.pdf) Problem 1a--d and ...
 
 * Final
 
