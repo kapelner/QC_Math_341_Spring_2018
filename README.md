@@ -1,4 +1,4 @@
-# MATH 341 Spring 2018
+# MATH 341 Bayesian Modeling Spring 2018
 
 This is the course homepage for Math 341 (and Masters level 650.3-01) for the Spring semester, 2018 at Queens College, City University of New York taught by Professor Adam Kapelner. The course syllabus can be found [here](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/syllabus/syllabus.pdf).
 
