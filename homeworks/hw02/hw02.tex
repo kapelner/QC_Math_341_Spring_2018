@@ -1,0 +1,423 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 341 / 650.3 Spring 2018 Homework \#2}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due Friday 5PM, March 2, 2018 under the door of KY604 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review Math 241 concerning random variables, support, parameter space, expectation, variance, mode, quantiles, uniform distribution, binomial distribution, beta distribution, conjugacy, bayesian credible sets,  and read the relevant sections of McGrayne.
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. 
+
+Problems marked \qu{[MA]} are for the masters students only (those enrolled in the 650.3 course). For those in 341, doing these questions will count as extra credit.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 10 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+\problem{These are questions about McGrayne's book, chapters 4-7.}
+
+\begin{enumerate}
+
+\easysubproblem{Describe four things Bayesian modeling was applied to during WWII and identify the people who developed each application.}\spc{8}
+
+\intermediatesubproblem{What do you think was the main reason Bayesian Statistics fell out of favor at the end of WWII?}\spc{2}
+
+
+\intermediatesubproblem{Why weren't the leaders of Statistics world in the 1950's able to answer the think-tank's question about the $\prob{\text{war in the next 5 years}}$?}\spc{2}
+
+\easysubproblem{Who was responsible for reviving the interest in Bayesian Statistics post-WWII and why?}\spc{2}
+
+
+\hardsubproblem{In 1955, there were no midair collisions of two planes. How was the actuary able to estimate that the number would be above zero?}\spc{2}
+
+\easysubproblem{The main attack on Bayesian Statistics has always been subjectivity. Answer the following question how Savage would have answered it: \qu{If prior opinions can differ from one researcher to the next, what happens to scientific objectivity in data analysis?} Do you believe Savage's idea is the way science works in the real world?}\spc{3}
+
+
+\hardsubproblem{[MA] On page 104, Sharon writes, \qu{Bayesians would also be able to concentrate on what happened, not on what \textit{could} have happened according to Neyman Pearson's samping plan}. (Note that the \qu{Neyman Pearson's samping plan} is synonymous with Frequentist Statistics). Explain (1) how Bayesians concentrate on \qu{what happened} and (2) how Frequentists concentrate on what \qu{\textit{could} have happened} in the context on page 104.}\spc{6}
+
+
+\easysubproblem{Who were the two tireless champions of Bayesian Statistics throughout the 50's, 60's and 70's and where geographically were they located during the majority of their career?}\spc{2}
+
+\end{enumerate}
+
+
+\problem{We will now be looking at the beta-prior, binomial-likelihood Bayesian model and introduce credible regions as well.}
+
+\begin{enumerate}
+
+\easysubproblem{Using the principle of indifference, what should the prior on $\theta$ (the parameter for the Bernoulli model) be?}\spc{1}
+
+\easysubproblem{Let's say $n=6$ and your data is $0,1,0,1,0,1$. What is the likelihood of this event?}\spc{2}
+
+\easysubproblem{Does it matter the order as to which the data came in? Yes/no.}\spc{0.5}
+
+\intermediatesubproblem{Show that the unconditional joint probability (the denominator in Bayes rule) is a beta function and specify its two arguments.}\spc{5}
+
+\intermediatesubproblem{Put your answer from (a), (b) and (d) together to find the posterior probability of $\theta$ given this dataset. Show that it is equal to a beta distribution and specify its parameters.}\spc{5}
+
+\easysubproblem{Now imagine you are not indifferent and you have some idea about what $\theta$ could be a priori and that subjective feeling can be specified as a beta distribution. (1) Draw the basic shapes that the beta distribution can take on, (2) give an example of $\alpha$ and $\beta$ values that would produce these shapes and (3) write a sentence about what each one means for your prior belief. These shapes are in the notes.}\spc{12}
+
+\intermediatesubproblem{Imagine $n$ data points of which you don't know the realization values. Using your prior of $\theta \sim \stdbetanot$, show that $\theta~|~X \sim \betanot{\alpha + x}{\beta + (n - x)}$. Note that $x := \sum_{i = 1}^n x_i$ which is the total number of successes and thereby $n-x$ is the total number of failures.}\spc{10}
+
+\easysubproblem{What does it mean that the beta distribution is the \qu{conjugate prior} for the binomial likelihood?}\spc{3}
+
+\hardsubproblem{Show that if $Y \sim \stdbetanot$ then $\var{Y} = \frac{\alpha\beta}{\squared{\alpha + \beta}(\alpha + \beta + 1)}$.}\spc{11}
+
+\extracreditsubproblem{Prove that $B(\alpha, \beta) = \frac{\Gammaf{\alpha} \Gammaf{\beta}}{\Gammaf{\alpha + \beta}}$.}
+
+
+\intermediatesubproblem{Stare at that distribution, $\theta~|~X \sim \betanot{\alpha + x}{\beta + (n - x)}$. Some say the values of $\alpha$ and $\beta$ can be interpreted as follows: $\alpha$ is considered the prior number of successes and $\beta$ is considered the prior number of failures. Why is this a good interpretation? Writing out the PDF of $\theta~|~X$ should help you see it.}\spc{5}
+
+\intermediatesubproblem{If you employ the principle of indifference, how many successes and failures is that equivalent to seeing a priori?}\spc{3}
+
+\easysubproblem{Why are large values of $\alpha$ and/or $\beta$ considered to compose a \qu{strong} prior?}\spc{2}
+
+\intermediatesubproblem{[MA] What is the weakest prior you can think of and why?}\spc{5}
+
+
+\hardsubproblem{I think a priori that $\theta$ should be expected to be 0.8 with a standard error of 0.02. Solve for the values of $\alpha$ and $\beta$ based on my a priori specification. }\spc{9}
+
+\hardsubproblem{Prove that the posterior predictive distribution is $X^*~|~X \sim \bernoulli{\frac{x + \alpha}{n + \alpha + \beta}}$. MA students --- do this yourself. Other students --- use my notes and justify each step. I use a property of the \href{https://en.wikipedia.org/wiki/Gamma_function}{gamma function}. Remember, if $W \sim \bernoulli{\theta}$ then $\prob{W=1} = \theta$. Use that trick! Set $X^* = 1$ and find that probability!}\spc{12}
+
+
+\easysubproblem{Assume the dataset in (b) where $n=6$. Assume $\theta \sim \betanot{\alpha=2}{\beta=2}$ a priori. Find the $\thetahatmap$, $\thetahatmmse$ and $\thetahatmae$ estimates for $\theta$. For the $\thetahatmae$ estimate, you'll need to obtain a quantile of the beta distribution. Use \texttt{R} on your computer or online using \href{http://rextester.com/l/r_online_compiler}{rextester}. The \texttt{qbeta} function in \texttt{R} finds arbitrary beta quantiles. Its first argument is the quantile desired e.g. 2.5\%, the next is $\alpha$ and the third is $\beta$. So to find the 97.5\%ile of a $\betanot{\alpha=2}{\beta=2}$ for example you type \texttt{qbeta(.975, 2, 2)} into the \texttt{R} console.}\spc{2}
+
+\intermediatesubproblem{Why are all three of these estimates the same?}\spc{5}
+
+\easysubproblem{Write out an expression for the 95\% credible region for $\theta$. Then solve computationally using the \texttt{qbeta} function in \texttt{R}.}\spc{3}
+
+\easysubproblem{Compute a 95\% frequentist CI for $\theta$.}\spc{5}
+
+\hardsubproblem{Let $\mu : \reals \rightarrow \reals^+$ be the \href{https://en.wikipedia.org/wiki/Lebesgue_measure}{Lebesgue measure} which measures the length of a subset of $\reals$. Why is $\mu(\text{CR}) < \mu(\text{CI})$? That is, why is the Bayesian Confidence Interval tighter than the Frequentist Confidence Interval? Use your previous answers. }\spc{3}
+
+\easysubproblem{Explain the disadvantages of the highest density region method for computing credible regions.}\spc{3}
+
+\intermediatesubproblem{Design a prior where you believe $\expe{\theta} = 0.5$ and you feel as if your belief represents information contained in five coin flips.}\spc{3}
+
+\intermediatesubproblem{Calculate a 95\% a priori credible region for $\theta$. Use \texttt{R} on your computer (or \href{http://www.r-fiddle.org/}{R-Fiddle} online) and its \texttt{qbeta} function.}\spc{3}
+
+\easysubproblem{You flip the same coin 100 times and you observe 39 heads. Find the distribution of $\theta~|~X$.}\spc{0.5}
+
+
+\easysubproblem{Calculate a 95\% a posteriori credible region for $\theta$.}\spc{1}
+
+\easysubproblem{Why is your answer to (z) a smaller interval than (x)?}\spc{3}
+
+\end{enumerate}
+
+
+\end{document}
+
+\intermediatesubproblem{Stare at that distribution, $\theta~|~X \sim \betanot{\alpha + x}{\beta + (n - x)}$. Some say the values of $\alpha$ and $\beta$ can be interpreted as follows: $\alpha - 1$ is considered the prior number of successes and $\beta - 1$ is considered the prior number of failures. Why is this a good interpretation? Writing out the PDF of $\theta~|~X$ should help you see it.}\spc{5}
+
+\intermediatesubproblem{By the principle of indifference, how many successes and failures is that equivalent to seeing a priori?}\spc{3}
+
+\easysubproblem{Why are large values of $\alpha$ and/or $\beta$ considered to compose a \qu{strong} prior?}\spc{2}
+
+\intermediatesubproblem{[MA] What is the weakest prior you can think of and why?}\spc{5}
+
+\hardsubproblem{I think a priori that $\theta$ should be expected to be 0.8 with a standard error of 0.02. Solve for the values of $\alpha$ and $\beta$ based on my a priori specification. }\spc{7}
+
+\hardsubproblem{Prove that the posterior predictive distribution is $X^*~|~X \sim \bernoulli{\frac{x + \alpha}{n + \alpha + \beta}}$. MA students --- do this yourself. Other students --- use my notes and justify each step. I use a property of the \href{https://en.wikipedia.org/wiki/Gamma_function}{gamma function}.}\spc{12}
+
+\intermediatesubproblem{The frequentist estimate of $\theta$ is $\phat = 3/6 = 0.5$ So a frequentist would probably use a posterior predictive distribution (if he had such a thing) as $X^*~|~X \sim \bernoulli{0.5}$. Why conceptually does this answer differ from your answer in (n)?}\spc{4}
+
+\easysubproblem{Assume the dataset in (b) where $n=6$. Assume $\theta \sim \betanot{\alpha=2}{\beta=2}$ a priori. Find the $\thetahatmap$, $\thetahatmmse$ and $\thetahatmae$ estimates for $\theta$.\\ 
+
+For the $\thetahatmae$ estimate, you'll need to obtain a quantile of the beta distribution. Use \texttt{R} on your computer or online using \href{http://www.r-fiddle.org/}{R-Fiddle}. The \texttt{qbeta} function in \texttt{R} finds arbitrary beta quantiles. Its first argument is the quantile desired e.g. 2.5\%, the next is $\alpha$ and the third is $\beta$. So to find the 97.5\%ile of a $\betanot{\alpha=2}{\beta=2}$ for example you type \texttt{qbeta(.975, 2, 2)} into the \texttt{R} console.}\spc{5}
+
+\intermediatesubproblem{Why are all three of these estimates the same?}\spc{5}
+
+\easysubproblem{Write out an expression for the 95\% credible region for $\theta$. Then solve computationally using the \texttt{qbeta} function in \texttt{R}.}\spc{3}
+
+\easysubproblem{Compute a 95\% frequentist CI for $\theta$.}\spc{3}
+
+\hardsubproblem{Let $\mu : \reals \rightarrow \reals^+$ be the \href{https://en.wikipedia.org/wiki/Lebesgue_measure}{Lebesgue measure} which measures the length of a subset of $\reals$. Why is $\mu(\text{CR}) < \mu(\text{CI})$? That is, why is the Bayesian Confidence Interval tighter than the Frequentist Confidence Interval? Use your answers from (r) and (s). }\spc{3}
+
+\easysubproblem{Explain the disadvantages of the highest density region method for computing credible regions.}\spc{3}
+
+\end{enumerate}
+
+
+\problem{We will now be looking at the beta-prior, binomial-likelihood Bayesian model once again.}
+
+\begin{enumerate}
+
+\easysubproblem{Using the principle of indifference, what should the prior on $\theta$ (the parameter for the Bernoulli model) be?}\spc{1}
+
+\easysubproblem{Let's say $n=6$ and your data is $0,1,0,1,0,1$. What is the likelihood of this event?}\spc{2}
+
+\easysubproblem{Does it matter the order as to which the data came in? Yes/no.}\spc{0.5}
+
+\intermediatesubproblem{Show that the unconditional joint probability (the denominator in Bayes rule) is a beta function and specify its two arguments. We did this in class.}\spc{3}
+
+\intermediatesubproblem{Put your answer from (a), (b) and (d) together to find the posterior probability of $\theta$ given this dataset. Show that it is equal to a beta distribution and specify its parameters.}\spc{5}
+
+\easysubproblem{Now imagine you are not indifferent and you have some idea about what $\theta$ could be a priori and that subjective feeling can be specified as a beta distribution. (1) Draw the basic shapes that the beta distribution can take on, (2) give an example of $\alpha$ and $\beta$ values that would produce these shapes and (3) write a sentence about what each one means for your prior belief. These shapes are in the notes.}\spc{20}
+
+%\intermediatesubproblem{Imagine $n$ data points of which you don't know the realization values. Show that $\theta~|~X \sim \betanot{\alpha + x}{\beta + (n - x)}$. Note that $x := \sum_{i = 1}^n x_i$ which is the total number of successes and thereby $n-x$ is the total nubmer of failures. The answer is in the notes but try to do it yourself.}\spc{10}
+
+\easysubproblem{What does it mean that the beta distribution is the \qu{conjugate prior} for the binomial likelihood?}\spc{3}
+
+\intermediatesubproblem{Stare at that distribution, $\theta~|~X \sim \betanot{\alpha + x}{\beta + (n - x)}$. Some say the values of $\alpha$ and $\beta$ can be interpreted as follows: $\alpha - 1$ is considered the prior number of successes and $\beta - 1$ is considered the prior number of failures. Why is this a good interpretation? Writing out the PDF of $\theta~|~X$ should help you see it.}\spc{5}
+
+\intermediatesubproblem{By the principle of indifference, how many successes and failures is that equivalent to seeing a priori?}\spc{3}
+
+\easysubproblem{Why are large values of $\alpha$ and/or $\beta$ considered to compose a \qu{strong} prior?}\spc{2}
+
+\intermediatesubproblem{[MA] What is the weakest prior you can think of and why?}\spc{5}
+
+\hardsubproblem{[MA] Show that if $X \sim \stdbetanot$ then $\var{X} = \frac{\alpha\beta}{\squared{\alpha + \beta}(\alpha + \beta + 1)}$.}\spc{11}
+
+\hardsubproblem{I think a priori that $\theta$ should be expected to be 0.8 with a standard error of 0.02. Solve for the values of $\alpha$ and $\beta$ based on my a priori specification. }\spc{9}
+
+\hardsubproblem{Prove that the posterior predictive distribution is $X^*~|~X \sim \bernoulli{\frac{x + \alpha}{n + \alpha + \beta}}$. MA students --- do this yourself. Other students --- use my notes and justify each step. I use a property of the \href{https://en.wikipedia.org/wiki/Gamma_function}{gamma function}. Remember, if $W \sim \bernoulli{\theta}$ then $\prob{W=1} = \theta$. Use that trick! Set $X^* = 1$ and find that probability!}\spc{12}
+
+\intermediatesubproblem{The frequentist estimate of $\theta$ is $\phat = 3/6 = 0.5$ So a frequentist would probably use a posterior predictive distribution (if he had such a thing) as $X^*~|~X \sim \bernoulli{0.5}$. Why conceptually does this answer differ from your answer in (n)?}\spc{7}
+
+\easysubproblem{Assume the dataset in (b) where $n=6$. Assume $\theta \sim \betanot{\alpha=2}{\beta=2}$ a priori. Find the $\thetahatmap$, $\thetahatmmse$ and $\thetahatmae$ estimates for $\theta$.\\ 
+
+For the $\thetahatmae$ estimate, you'll need to obtain a quantile of the beta distribution. Use \texttt{R} on your computer or online using \href{http://www.r-fiddle.org/}{R-Fiddle}. The \texttt{qbeta} function in \texttt{R} finds arbitrary beta quantiles. Its first argument is the quantile desired e.g. 2.5\%, the next is $\alpha$ and the third is $\beta$. So to find the 97.5\%ile of a $\betanot{\alpha=2}{\beta=2}$ for example you type \texttt{qbeta(.975, 2, 2)} into the \texttt{R} console.}\spc{5}
+
+\intermediatesubproblem{Why are all three of these estimates the same?}\spc{5}
+
+\easysubproblem{Write out an expression for the 95\% credible region for $\theta$. Then solve computationally using the \texttt{qbeta} function in \texttt{R}.}\spc{3}
+
+\easysubproblem{Compute a 95\% frequentist CI for $\theta$.}\spc{3}
+
+\hardsubproblem{Let $\mu : \reals \rightarrow \reals^+$ be the \href{https://en.wikipedia.org/wiki/Lebesgue_measure}{Lebesgue measure} which measures the length of a subset of $\reals$. Why is $\mu(\text{CR}) < \mu(\text{CI})$? That is, why is the Bayesian Confidence Interval tighter than the Frequentist Confidence Interval? Use your answers from (r) and (s). }\spc{3}
+
+\easysubproblem{Explain the disadvantages of the highest density region method for computing credible regions.}\spc{3}
+
+\end{enumerate}
+
+\end{document}
+
+
+\problem{These are questions about McGrayne's book, preface, chapter 1, 2 and 3.}
+
+\begin{enumerate}
+
+\easysubproblem{Explain Hume's problem of induction with the sun rising every day.}\spc{3}
+
+\easysubproblem{Explain the \qu{inverse probability problem.}}\spc{3}
+
+\easysubproblem{What is Bayes' billiard table problem?}\spc{3}
+
+\hardsubproblem{[MA] How did Price use Bayes' idea to prove the existence of the deity?} \spc{3}
+
+\easysubproblem{Why should Bayes Rule really be called \qu{Laplace's Rule?}}\spc{3}
+
+\hardsubproblem{Prove the version of Bayes Rule found on page 20. State your assumption(s) explicitly. Reference class notes as well.}\spc{4}
+
+\easysubproblem{Give two scientific contexts where Laplace used inverse probability theory to solve major problems.}\spc{3}
+
+\hardsubproblem{[MA] Why did Laplace turn into a frequentist later in life?} \spc{3}
+
+\easysubproblem{State Laplace's version of Bayes Rule (p31).} \spc{3}
+
+\easysubproblem{Why was Bayes Rule \qu{damned} (pp36-37)?} \spc{3}
+
+\easysubproblem{According to Edward Molina, what is the prior (p41)?} \spc{3}
+
+\easysubproblem{What is the source of the \qu{credibility} metric that insurance companies used in the 1920's?} \spc{3}
+
+\easysubproblem{Can the principle of inverse probability work without priors? Yes/no.} \spc{1}
+
+\hardsubproblem{In class we discussed the \qu{principle of indifference} which is a term I borrowed from \href{http://www.amazon.com/Philosophical-Theories-Probability-Issues-Science/dp/041518276X/ref=sr_1_1?ie=UTF8&qid=1455112335&sr=8-1&keywords=donald+gillies+theory+of+probability}{Donald Gillies' Philosophical Theories of Probability}. On Wikipedia, it says that Jacob Bernoulli called it the \qu{principle of insufficient reason}. McGrayne in her research of original sources comes up with many names throughout history this principle was named. List all of them you can find here.} \spc{3}
+
+\easysubproblem{Jeffreys seems to be the founding father of modern Bayesian Statistics. But why did the world turn frequentist in the 1920's? (p57)} \spc{3}
+\end{enumerate}
+
+\problem{These exercises will review the Bernoulli model.}
+
+
+\begin{enumerate}
+
+\easysubproblem{If $X \sim \bernoulli{\theta}$, find $\expe{X}$, $\var{X}$, $\support{X}$ and $\Theta$. No need to derive from first principles, just find the formulas.}\spc{2}
+
+\intermediatesubproblem{If $X \sim \bernoulli{\theta}$, find $\median{X}$.}\spc{2}
+
+\intermediatesubproblem{If $X \sim \bernoulli{\theta}$, write the \qu{parametric statistical model} below using the notation we used in class only.}\spc{2}
+
+
+\intermediatesubproblem{Explain what the semicolon notation in the previous answer indicates. Hint: go back to precalc and think of the function $g(x;a) = ax^2$ }\spc{2}
+
+\easysubproblem{If $\Xoneton \iid \bernoulli{\theta}$, find the likelihood, $\mathcal{L}$, of $\theta$.}\spc{2}
+
+\hardsubproblem{Given the likelihood above, what would $\mathcal{L}$ be if the data was $<0,1,0,1,3.7>$? Why should this answer have to be?}\spc{2}
+
+\easysubproblem{If $\Xoneton \iid \bernoulli{\theta}$, find the log-likelihood of $\theta$, $\ell(\theta)$.}\spc{2}
+
+\hardsubproblem{[MA] If $\Xoneton \iid f(x;\theta)$, explain why the log-likelihood of $\theta$ is normally distributed if $n$ gets large.}\spc{6}
+
+\easysubproblem{If $\Xoneton \iid \bernoulli{\theta}$, find the score function (i.e the derivative of the log-likelihood) of $\theta$.}\spc{2}
+
+\intermediatesubproblem{If $\Xoneton \iid \bernoulli{\theta}$, find the maximum likelihood estimator for $\theta$.}\spc{5}
+
+\easysubproblem{If $\Xoneton \iid \bernoulli{\theta}$, find the maximum likelihood \textit{estimate} for $\theta$.}\spc{1}
+
+\easysubproblem{Given the previous two questions, describe the difference between a random variable and a datum.}\spc{3}
+
+\easysubproblem{If your data is $<0,1,1,0,1,1,0,1,1,1>$, find the maximum likelihood estimate for $\theta$.}\spc{1}
+
+\easysubproblem{Given this data, find a 99\% confidence interval for $\theta$.}\spc{3}
+
+\easysubproblem{Given this data, test $H_0: \theta = 0.5$ versus $H_a: \theta \neq 0.5$.}\spc{7}
+
+
+\easysubproblem{Write the PDF of $X \sim \normnot{\theta}{1^2}$.}\spc{5}
+
+\hardsubproblem{Find the MLE for $\theta$ if $\Xoneton \iid \normnot{\theta}{1^2}$.}\spc{6}
+
+\hardsubproblem{[MA] Find the MLE for $\theta$ if $\Xoneton \iid \normnot{\mu}{\sigsq}$. Solve the system of equations $\partialop{\mu}{\ell(\theta)} = 0$ and $\partialop{\sigsq}{\ell(\theta)} = 0$ where $\ell(\theta)$ denotes the log likelihood. You can easily find this online. But try to do it yourself.} \spc{20}
+
+
+\end{enumerate}
+
+\problem{We will review the frequentist perspective here.}
+
+\begin{enumerate}
+
+\hardsubproblem{Why do frequentists have an insistence on $\theta$ being a fixed, immutable quantity? We didn't cover this in class explicitly but it is lurking behind the scenes. Use your reference resources.}\spc{5}
+
+\easysubproblem{What are the three goals of inference? Give short explanations.}\spc{5}
+
+\easysubproblem{What are the three reasons why \emph{frequentists} (adherents to the frequentist perspective) use MLEs i.e. list three properties of MLEs that make them powerful.}\spc{6}
+
+\hardsubproblem{[MA] Give the conditions for asymptotic normality of the MLE,
+
+\beqn
+\frac{\thetahatmle - \theta}{\se{\thetahatmle}} \convd \stdnormnot.
+\eeqn
+
+You can find them online.}\spc{8}
+
+\hardsubproblem{[MA] $\se{\thetahatmle}$ cannot be found without $\theta$ so we substituted $\thetahatmle$ into $\se{\thetahatmle}$ and called it $\seest{\thetahatmle}$ (note the hat over the SE). Show that this too is asymptotically normal, \ie
+
+\beqn
+\frac{\thetahatmle - \theta}{\seest{\thetahatmle}} \convd \stdnormnot
+\eeqn
+
+You need the continuous mapping theorem and Slutsky's theorem.
+}\spc{4}
+
+\easysubproblem{[MA] Explain why the previous question allows us to build asymptotically valid confidence intervals using $\bracks{\thetahatmle \pm z_{\alpha/2} \seest{\thetahatmle}}$}.\spc{3}
+
+\intermediatesubproblem{Why does all of frequentist inference break down if $n$ isn't large?}\spc{2}
+
+\easysubproblem{Write the most popular two frequentist interpretations of a confidence interval.}\spc{6}
+
+\intermediatesubproblem{Why are each of these unsatisfactory?}\spc{3}
+
+\easysubproblem{What are the two possible outcomes of a hypothesis test?}\spc{1}
+
+\hardsubproblem{[MA] What is the weakness of the interpretation of the $p$-val?}\spc{6}
+
+
+\end{enumerate}
+
+
+\problem{We review and build upon conditional probability here.}
+
+\begin{enumerate}
+
+
+\easysubproblem{Explain why $\cprob{B}{A} \propto \cprob{A}{B}$.}\spc{6}
+
+\easysubproblem{If $B$ represents the hypothesis or the putative cause and $A$ represents evidence or data, explain what Bayesian Conditionalism is, going from which probability statement to which probability statement.}\spc{3}
+
+\end{enumerate}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\intermediatesubproblem{In class we presented the posterior odds form of Bayes Theorem. Prove it below.}\spc{10}
+
+
+\intermediatesubproblem{Show that the Bayes Factor is the ratio of posterior odds of the hypothesis to prior odds of the hypothesis.}\spc{2}
+
+\easysubproblem{On the \href{https://en.wikipedia.org/wiki/Bayes_factor}{wikipedia page about Bayes Factors}, Harrold Jeffreys (who we will be returning to later in the semester) gave interpretations of Bayes Factors (which is denoted $K$ there and $B$ in Bolstad's book on page 70). Give the ranges of $K$ here (not in terms of powers of 10, but as a pure number) for his interpretations i.e. \qu{negative,} \qu{strong,} etc.}\spc{3}
+
+\hardsubproblem{[MA] Conceptually why should the likelihood being greater than $\prob{A}$ imply that the hypothesis is more likely after observing the data than before?}\spc{6}
+\end{enumerate}
+
+\problem{We examine here paternity testing (i.e. answering the question \qu{is this guy the father of my child?}) via the simplistic test using blood types. These days, more advanced genetic methods exist so these calculations aren't made in practice, but they are a nice exercise. 
+
+First a crash course on basic genetics. In general, everyone has two alleles (your genotype) with one coming from your mother and one coming from your father. The mother passes on each of the alleles with 50\% probability and the father passes on each allele with 50\% probability. One allele gets expressed (your phenotype). So one of the genes shone through (the dominant one) and one was masked (the recessive one). Dominant blood types are A and B and the recessive type is o (lowercase letter). The only way to express phenotype o is to have genotype oo i.e. both genes are o. There is an exception; A and B are codominant meaning that blood type AB tests positive for both A and B.
+
+In this case consider a child of blood type B and the mother of blood type A. Using this \href{http://www.cccoe.net/genetics/blood2.html}{hereditary guide}, we know that the mother's type must be Ao so she passed on an o to the child thus the child got the B from the father. Thus the father had type AB, BB or Bo. I got the following data from \href{http://www.sciencedirect.com/science/article/pii/S1110863011000796}{this paper} (so let's assume this case is in Nigeria in 1998).
+
+\begin{table}
+\centering
+\begin{tabular}{cc}
+Genotype & Frequency \\ \hline
+OO	&0.52 \\
+AA	&0.0196 \\
+AO	&0.2016 \\
+BB	&0.0196 \\
+BO	&0.2016 \\
+AB	&0.0392 \\
+\end{tabular}
+\end{table}
+} 
+
+\begin{enumerate}
+
+\easysubproblem{Bob is the alleged father and he has blood type B but his genotype is unknown. What is the probability he passes on a B to the child?}\spc{3}
+
+\easysubproblem{What is the probability a stranger passes on a B to the child?}\spc{3}
+
+\easysubproblem{Assume our prior is 50-50 Bob is the father, the customary compromise between a possibly bitter mother and father. What is the prior odds of Bob being the father? Don't think too hard about this one; it is marked easy for a reason.}\spc{6}
+
+\hardsubproblem{We are interested in the posterior question. What is the probability Bob is the father given the child with blood type B?}\spc{5}
+
+\hardsubproblem{What is the Bayes Factor here? See (a) and (b).}\spc{5}
+
+\easysubproblem{What is the probability Bob is not the father given the child with blood type B? Should be easy once you have (c) and (e).}\spc{3}
+
+\end{enumerate}
+
+
+\end{document}
