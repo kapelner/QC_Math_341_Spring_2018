@@ -59,6 +59,7 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 
 * Midterm I
 
+[(exam)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm1/midterm1.pdf) [(exam solutions)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm1/midterm1_solutions.pdf)
 [(practice exam 1)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm1/midterm1.pdf) [(practice exam 1 solutions)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm1/midterm1_solutions.pdf)
 [(practice exam 2)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm1/midterm1.pdf) [(practice exam 2 solutions)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm1/midterm1_solutions.pdf)
 
