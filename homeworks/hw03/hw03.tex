@@ -12,7 +12,7 @@
 \author{Professor Adam Kapelner} %STUDENTS: write your name here
 
 \iftoggle{professormode}{
-\date{Due Friday 5PM, March 16, 2018 under the door of KY604 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+\date{Due Monday 5PM, March 19, 2018 under the door of KY604 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
 }
 
 \renewcommand{\abstractname}{Instructions and Philosophy}
@@ -89,18 +89,46 @@ NAME: \line(1,0){380}
 
 \intermediatesubproblem{Given the tested hypotheses from (i) and data from (c), write the formula for the Bayes factor and then write the integral expression. Do not solve.}\spc{4}
 
-
-\intermediatesubproblem{[MA] Calculate the Bayes Factor numerically by solving the integral expression in (k). Interpret your value of $K$ (or $B$) according to \href{https://en.wikipedia.org/wiki/Bayes_factor}{wikipedia page about Bayes Factors}.}\spc{11}
-
 \easysubproblem{Assume again the prior information from (a). What is the shrinkage proportion $\rho$ for this prior when estimating $\theta$ via $\thetahatmmse$?.}\spc{2}
 
-\hardsubproblem{Prove that $\thetahatmmse$ is a biased estimator (i.e. its expectation is \textit{not} $\theta$).}\spc{5}
+\hardsubproblem{Prove that $\thetahatmmse$ is a biased estimator (i.e. its expectation is \textit{not} $\theta$).}\spc{4}
 
-\easysubproblem{Prove that $\displaystyle \limitn \rho = 0$ and therefore this bias $\rightarrow 0$ as your dataset gets larger.}\spc{4}
+\easysubproblem{Prove that $\displaystyle \limitn \rho = 0$ and therefore this bias $\rightarrow 0$ as your dataset gets larger.}\spc{3}
 
-\hardsubproblem{[MA] Why on Earth should anyone use shrinkage estimators if they're biased? Google it. Discuss.}\spc{4}
+\hardsubproblem{[MA] Why on Earth should anyone use shrinkage estimators if they're biased? Google it. Discuss.}\spc{3}
 
 \end{enumerate}
+
+
+\problem{This question is about a famous  extra sensory perception (ESP) experiment.}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=2.8in]{esp.jpg}
+\end{figure}
+
+According to quantum mechanics, an event should happen with exactly probability 50\%. So if someone comes with a claim that they have ESP and can affect this event with their mind, then the event no longer has probability 50\% (this is what we are trying to prove).
+
+An experiment was run with someone claiming they have ESP. They tried to affect the event with their mind. The data is as follows: of $n= 104,490,000$ observations, the number of events was $x = 52,263,970$. We will now test to see if the person has ESP a number of ways and try to reconcile the differences.
+
+\begin{enumerate}
+
+\easysubproblem{What is the MLE for the probability of the event?}\spc{1}
+
+\easysubproblem{Run a two-sided frequentist test at $\alpha = 5\%$ and report the decision (i.e. retain or reject) and the $p$ value.}\spc{4}
+
+\intermediatesubproblem{Run a two-sided Bayesian test assuming the principle of indifference. Use the equivalence region approach with $\delta = 0.01$. Report the decision (i.e. retain or reject) and the $p$ value.}\spc{6}
+
+\intermediatesubproblem{Run a two-sided Bayesian test assuming the principle of indifference. Use the credible region approach. Report the decision (i.e. retain or reject). There is no $p$ value.}\spc{6}
+
+
+\hardsubproblem{Calculate the Bayes Factor $B$ where the alternative hypothesis of $\theta \neq 0.5$ can be summed up with $\theta \sim \stduniform$.}\spc{6}
+
+
+
+\hardsubproblem{Try to reconcile parts (b), (c), (d), (e). Why are there different answers? What is going on??}\spc{6}
+\end{enumerate}
+
 
 
 
