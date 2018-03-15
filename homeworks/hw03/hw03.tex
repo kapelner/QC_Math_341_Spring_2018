@@ -12,7 +12,7 @@
 \author{Professor Adam Kapelner} %STUDENTS: write your name here
 
 \iftoggle{professormode}{
-\date{Due Monday 5PM, March 19, 2018 under the door of KY604 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+\date{Due Tuesday 11:59PM, March 20, 2018 under the door of KY604 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
 }
 
 \renewcommand{\abstractname}{Instructions and Philosophy}
@@ -211,6 +211,38 @@ We assume that each at bat (for any player) are conditionally $\iid$ based on th
 
 \end{enumerate}
 
+\problem{We will now have lots of examples finding kernels from common distributions. Some of these questions are silly, but they will force you to think hard about what the kernel is under different situations. And... they're fun!}
+
+\begin{enumerate}
+
+\easysubproblem{What is the kernel of $X~|~\theta,~n \sim \binomial{n}{\theta}$?}\spc{3}
+
+\hardsubproblem{What is the kernel of $X, n~|~\theta \sim \binomial{n}{\theta}$? Be careful...}\spc{3}
+
+\easysubproblem{What is the kernel of $X~|~\theta \sim \poisson{\theta}$?}\spc{3}
+
+\hardsubproblem{What is the kernel of $\theta~|~X \sim \poisson{\theta}$? Be careful...}\spc{3}
+
+\easysubproblem{What is the kernel of $X~|~\alpha,~\beta \sim \stdbetanot$?}\spc{4}
+
+\easysubproblem{What is the kernel of $X~|~\theta \sim \exponential{\theta}$?}\spc{4}
+
+\easysubproblem{What is the kernel of $X~|~\theta,~\sigsq \sim \normnot{\theta}{\sigsq}$?}\spc{4}
+
+\hardsubproblem{What is the kernel of $\theta,~\sigsq~|~X \sim \normnot{\theta}{\sigsq}$? Be careful...}\spc{4}
+
+\intermediatesubproblem{[MA] What is the kernel of 
+
+\beqn
+X~|~N,~\theta,~n \sim \hypergeometric{N}{\theta}{n} := {{{ \theta \choose x} {{N-\theta} \choose {n-x}}}\over {N \choose n}}
+\eeqn
+
+where $N$ is the number of total balls in the bag, $\theta$ is the number of success balls in the bag and $n$ is the number drawn out of the bag?}\spc{9}
+
+%\hardsubproblem{[MA] If $X~|~\theta,~\sigsq \sim \normnot{\theta}{\sigsq}$ and $\theta~|~\mu_0,~\tausq \sim \normnot{\mu_0}{\tausq}$, what is the kernel of $\theta~|~X,~\sigsq,~\mu_0,~\tausq$?}\spc{6}
+
+\end{enumerate}
+
 \end{document}
 
 %\problem{This problem is concerned with the \qu{Epistemic View} of probability --- this is the view that probabilities are inherently living inside the minds of human beings who are forced to grapple with uncertainty as they see it. One definition is the \textbf{Logical} definition which means that given the same information, everyone would come to the same conclusion. The logical definition requires the principle of indifference.}
@@ -229,36 +261,6 @@ We assume that each at bat (for any player) are conditionally $\iid$ based on th
 %
 %\end{enumerate}
 
-%\problem{We will now have lots of examples finding kernels from common distributions. Some of these questions are silly, but they will force you to think hard about what the kernel is under different situations. And... they're fun!}
-%
-%\begin{enumerate}
-%
-%\easysubproblem{What is the kernel of $X~|~\theta,~n \sim \binomial{n}{\theta}$?}\spc{3}
-%
-%\hardsubproblem{What is the kernel of $X, n~|~\theta \sim \binomial{n}{\theta}$? Be careful...}\spc{3}
-%
-%\easysubproblem{What is the kernel of $X~|~\theta \sim \poisson{\theta}$?}\spc{3}
-%
-%\hardsubproblem{What is the kernel of $\theta~|~X \sim \poisson{\theta}$? Be careful...}\spc{3}
-%
-%\easysubproblem{What is the kernel of $X~|~\alpha,~\beta \sim \stdbetanot$?}\spc{4}
-%
-%\easysubproblem{What is the kernel of $X~|~\theta \sim \exponential{\theta}$?}\spc{4}
-%
-%\easysubproblem{What is the kernel of $X~|~\theta,~\sigsq \sim \normnot{\theta}{\sigsq}$?}\spc{4}
-%
-%\hardsubproblem{What is the kernel of $\theta,~\sigsq~|~X \sim \normnot{\theta}{\sigsq}$? Be careful...}\spc{4}
-%
-%\intermediatesubproblem{[MA] What is the kernel of 
-%
-%\beqn
-%X~|~N,~\theta,~n \sim \hypergeometric{N}{\theta}{n} := {{{ \theta \choose x} {{N-\theta} \choose {n-x}}}\over {N \choose n}}
-%\eeqn
-%
-%where $N$ is the number of total balls in the bag, $\theta$ is the number of success balls in the bag and $n$ is the number drawn out of the bag?}\spc{9}
-%
-%%\hardsubproblem{[MA] If $X~|~\theta,~\sigsq \sim \normnot{\theta}{\sigsq}$ and $\theta~|~\mu_0,~\tausq \sim \normnot{\mu_0}{\tausq}$, what is the kernel of $\theta~|~X,~\sigsq,~\mu_0,~\tausq$?}\spc{6}
-%
-%\end{enumerate}
+
 
 
