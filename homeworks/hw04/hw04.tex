@@ -1,0 +1,461 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 341 / 650.3 Spring 2018 Homework \#4}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due Friday 11:59PM, April 13, 2018 under the door of KY604 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review the Gamma-Poisson and Normal-Normal models and read the relevant sections of McGrayne. 
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. 
+
+Problems marked \qu{[MA]} are for the masters students only (those enrolled in the 650.3 course). For those in 341, doing these questions will count as extra credit.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 10 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+
+\problem{These are questions about McGrayne's book, chapters 11--14.}
+
+\begin{enumerate}
+
+\easysubproblem{Did Savage like Shlaifer? Yes / No and why?}\spc{3}
+
+\easysubproblem{How did Neyman-Pearson approach statistical decision theory? What is the weakness to this approach? (p145)}\spc{3}
+
+\easysubproblem{Who popularized \qu{probability trees} (and \qu{tree flipping}) similar to exercises we did in Math 241?}\spc{1}
+
+\easysubproblem{Where are Bayesian methods taught more widely than any other discipline in academia?}\spc{2}
+
+\easysubproblem{Despite the popularity of his Bayesian textbook on business decision theory, why didn't Schlaifer's Bayesianism catch on in the real world of business executives making decisions?}\spc{3}
+
+\easysubproblem{Why did the pollsters fail (big time) to predict Harry Truman's victory in the 1948 presidential election?}\spc{2}
+
+\easysubproblem{When does the diference between Bayesianism and Frequentism grow \qu{immense}?}\spc{3}
+
+\easysubproblem{How did Mosteller demonstrate that Madison wrote the 12 Federalist papers of unknown authorship?}\spc{3}
+
+\easysubproblem{Write a one paragraph biography of John Tukey.}\spc{6}
+
+\easysubproblem{Why did Alfred Kinsey's wife want to poison John Tukey?}\spc{2}
+
+\easysubproblem{Tukey helped NBC with polling predictions for the presidential campaign. What was NBC's polling algorithm based on?}\spc{2}
+
+\easysubproblem{Why is \qu{objectivity an heirloom ... and ... a fallacy?}}\spc{2}
+
+\easysubproblem{Why do you think Tukey called Bayes Rule by the name \qu{borrowing strength?}}\spc{2}
+
+\easysubproblem{Why is it that we don't know a lot of Bayes Rule's modern history?}\spc{2}
+
+\easysubproblem{Generally speaking, how does Nate Silver predict elections?}\spc{2}
+
+\easysubproblem{How many Bayesians of import were there in 1979?}\spc{1}
+
+\easysubproblem{What advice did Chernoff give to Susan Holmes? (Note: Susan Holmes was my undergraduate advisor).}\spc{3}
+
+\easysubproblem{How did Rasmussen's team estimate the probability of a nuclear plant core meltdown?}\spc{4}
+
+\easysubproblem{How did the Three Mile Island accident vindicate Rasmussen's committee report?}\spc{5}
+
+
+\end{enumerate}
+
+\input{R_functions_table}
+
+\problem{We will ask some basic problems on the Gamma-Poisson conjugate model.}
+
+\begin{enumerate}
+
+\easysubproblem{If $X \sim \poisson{\theta}$ and prior $\prob{\theta}$, what is the kernel of the posterior? Leave the prior in as \qu{$\prob{\theta}$}.}\spc{4}
+
+\easysubproblem{Write the PDF of $\theta$ which is the gamma distribution with the standard hyperparameters we used in class.}\spc{2}
+
+\easysubproblem{What is the support and parameter space?}\spc{2}
+
+\easysubproblem{What is the expectation and standard error and mode?}\spc{2}
+
+
+\easysubproblem{Draw four different pictures of different hyperparameter combinations to demonstrate this model's flexibility}\spc{10}
+
+
+\intermediatesubproblem{Prove that the Poisson likelihood for $n=1$ with a gamma prior yields a gamma posterior and find its parameters.}\spc{4}
+
+\intermediatesubproblem{Prove that the Poisson likelihood for $n$ observations with a gamma prior yields a gamma posterior and find its parameters.}\spc{8}
+
+\intermediatesubproblem{For the Poisson likelihood for $n$ observations with a gamma prior find $\thetahatmmse$, $\thetahatmae$ and $\thetahatmap$.}\spc{2}
+
+\intermediatesubproblem{[MA] Demonstrate that $\thetahatmmse$ is a shrinkage estimator and find $\rho$.}\spc{4}
+
+\intermediatesubproblem{Demonstrate that $\prob{\theta} \propto 1$ is improper.}\spc{2}
+
+\easysubproblem{[MA] Demonstrate that $\prob{\theta} \propto 1$ can be created by using an improper Gamma distribution (i.e. a Gamma distribution with parameters that are not technically in its parameter space and thereby does not admit a distribution function).}\spc{2}
+
+\easysubproblem{What is the Jeffrey's prior for the Poisson likelihood model? Do not rederive. Just copy.}\spc{2}
+
+\easysubproblem{What is the equivalent of the Haldane prior in the Binomial likelihood model for the Poisson likelihood model? Use an interpretation of pseudocounts to explain.}\spc{2}
+
+\intermediatesubproblem{Prove that posterior predictive distribution for the next Poisson realization (i.e. $n^* = 1$) given $n$ observed Poisson realizations is negative binomially distributed and show its parameters are $p = \beta / (\beta + 1)$ and $r = \alpha$ for $\alpha \in \naturals$.}\spc{10}
+
+\intermediatesubproblem{If $\alpha \notin \naturals$, create an \qu{extended negative binomial} r.v. and find its PMF. You can copy from Wikipedia.}\spc{3}
+
+
+\intermediatesubproblem{Why is the extended negative binomial r.v. also known as the gamma-Poisson mixture distribution? Why is it also called the \qu{overdispersed Poisson}?}\spc{5}
+
+\extracreditsubproblem{[MA] Find the joint posterior predictive distribution for $m$ future observations. I couldn't find the answer to this myself nor compute the integral.}\spc{5}
+
+\intermediatesubproblem{If you observe $0,3,2,4,2,6,1,0,5$, give a 95\% CR for $\theta$. Pick an objective (uninformative) prior.}\spc{5}
+
+\intermediatesubproblem{Using the data and the prior from (r), test if $\theta < 2$.}\spc{5}
+
+
+\extracreditsubproblem{We talked about that the negative binomial is an \qu{overdispersed} Poisson. Show that the negative binomial converges to a Poisson.}\spc{11}
+
+\end{enumerate}
+
+
+\problem{We now discuss the theory of the normal-normal conjugate model.}
+
+\begin{enumerate}
+
+\easysubproblem{If $X \sim \normnot{\theta}{\sigsq}$, what is the kernel of $\theta~|~X,~\sigsq$?}\spc{1}
+
+\easysubproblem{If $X \sim \normnot{\theta}{\sigsq}$, what is the kernel of $\sigsq~|~X,~\theta$?}\spc{1}
+
+\easysubproblem{If $X \sim \normnot{\theta}{\sigsq}$, what is the kernel of $\theta~,\sigsq~|~X$?}\spc{1}
+
+\hardsubproblem{Show that posterior of $\theta~|~X,~\sigsq$ is normal if $\theta \sim \normnot{\mu_0}{\tausq}$. Try to do it yourself and only copy from the notes if you have to.}\spc{16}
+
+
+\hardsubproblem{Show that predictive distribution of $X^*~|~X,~\sigsq$ is normal if $\theta \sim \normnot{\mu_0}{\sigsq / n_0}$ by solving the integral and not using the convolution.}\spc{16}
+
+\end{enumerate}
+
+\problem This question is about building models for the prices of cars sold at dealerships.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=2.7in]{accord.jpg}
+\end{figure}
+
+The 2016 Honda Accord sells at many different dealerships in New York City but sell it for more and some for less. We'll assume that the final negotiated price is distributed normally because it's most likely the sum of many different negotiation factors.
+
+Our goal here is to determine the mean price at a certain car dealership in Astoria that people have been saying is \qu{too cheap} and if it's too cheap, Honda corporate may wish to investigate.
+
+
+\begin{enumerate}
+
+
+
+
+
+\easysubproblem{Assume that each Accord's price at the Astoria dealership is normal and $\iid$ given the parameters. Is this a good model? Why or why not? There is no \qu{correct} answer here but I expect you to defend whatever answer you write using the concepts we discussed in class.} \spc{6}
+
+\easysubproblem{Despite what you wrote in (b), assume $\iid$ for the rest of the problem. The nationwide variance for a Honda Accord selling price we're going to assume is $\sigsq = \$1000^2$, an assumption we will relax later, in the next homework. Given a sample with average $\xbar$ and sample size $n$, what is the distribution of the mean price of a car from this shady Astoria dealership? Assume an uninformative prior of your choice but ensure to explicitly state it.}\spc{5}
+
+\easysubproblem{You and your colleague go down to the Astoria dealership undercover and ask to buy a Honda. After much negotiation, they will sell it to you for \$19,000 and they will sell it to your colleague for \$18,200 but they sense something suspicious so you hesitate to send another one of your guys down there to do another faux negotiation. Unfortunately, we're going to have to estimate the mean with just $x_1=19000$ and $x_2 = 18200$. What is your best guess of the mean price of Honda Accords sold here? Assume your prior from (a). \compexpl }\spc{2}
+
+\easysubproblem{What is the shrinkage value (which we have been denoting $\rho$) for this estimate? \compexpl}\spc{3}
+
+\easysubproblem{Based on this data, we wish to test if this dealership is selling Honda Accords below the manufacturer sugested retail price (MSRP) of \$22,205 --- if so, they would be subject to a fine. Calculate a $p$-value for this test below by using notation from Table~\ref{tab:eqs} but do not solve numerically.}\spc{4}
+
+\easysubproblem{What is the probability I get a really good deal --- that I can buy a car from these Astoria people for under \$17,000? Use the notation from Table~\ref{tab:eqs} but do not solve numerically.}\spc{3}
+
+
+%\easysubproblem{If you were to estimate (g) without knowledge that $\sigma = \$1000$ but instead use \textit{an} uninformative prior (not necessarily \qu{the} uniformative prior) for $\sigsq$, would the probability of getting the same really good deal be greater than, less than or equal to your answer in (g)? Explain why.} \spc{8}
+
+%\easysubproblem{We will continue to not rely on the nationwide average of $\sigma = \$1000$. Here, instead of an uninformative prior, we use the Empirical Bayes concept to construct an informative prior (not uninformative).
+%
+%Below are the sample average selling prices (in USD) of Honda Accords from 16 other car dealerships also in the NYC area that serve as a comparison: \\
+%
+%\noindent
+%22889.80~ 21159.16 ~23796.71 ~19132.65 ~23450.63 ~24088.28 ~19852.37 ~21306.45 ~24434.05 ~23150.34 ~21690.09 ~20640.79 ~21973.45 ~21984.48 ~22326.00 ~22239.98\\
+%
+%
+%Using this data \textit{estimate} a conjugate prior for $\sigsq$. Use the $n_0$ and $\mu_0$ parameterization. You will still need $\sigsq$ from above!}\spc{4}
+
+%\easysubproblem{We want to use the answer from (i) to fit a \textit{conjugate} normal-normal model (with $\sigsq$ unknown). This requires solving for $m$ in the $\cprob{\theta}{\sigsq}$ prior. So we set $s^2$ from (a) equal to $\sigsq / m$ and solve for $m$ and we get $m$ = 0.45 rounded to the nearest two digits. What is our prior on $\theta, \sigsq$ now? You can notate your answer in terms of standard densities and you do not have to simplify it to a kernel.} \spc{4}
+
+
+%\easysubproblem{Given the data in (d) which is $x_1=19000$ and $x_2 = 18200$, what is your best guess of the mean price of Honda Accords sold here? Assume the empirical Bayes conjugate prior. Round to the nearest cent.} \spc{2}
+
+
+%\easysubproblem{If you were to answer (k) but this time assume an independent prior for $\theta$ from (a) and independent prior for $\sigsq$ from (i) and \textit{not} use the conjugate prior in (k), you would not be able to simply compute an estimate of mean price. Explain one way in which you could go about estimating this mean now. Provide one sentence of explanation \textit{only}. I am not looking for you to do any computation or describe a computer program.} \spc{6}
+
+
+\end{enumerate}
+
+
+
+
+\end{document}
+
+\easysubproblem{What is the definition of the convolution of two r.v.'s $X_1$ and $X_2$?}\spc{1}
+
+\hardsubproblem{Show that predictive distribution of $X^*~|~X,~\sigsq$ is normal if $\theta \sim \normnot{\mu_0}{\tausq}$ by solving the integral and not using the convolution.}\spc{12}
+
+\hardsubproblem{Even though you solved this in (f), using the law of iterated expectation, find the expectation of the predictive distribution of $X^*~|~X,~\sigsq$.}\spc{8}
+
+\hardsubproblem{Even though you solved this in (f), Using the law of total variance, find the variance of the predictive distribution of $X^*~|~X,~\sigsq$.}\spc{6}
+
+
+\easysubproblem{In this problem we found the posterior, $\theta~|~X,~\sigsq$. What are all the other posteriors that could be of interest? Explain the inferential targets of each.}\spc{6}
+
+\end{enumerate}
+
+
+\end{document}
+
+
+
+
+
+
+\problem{These are questions about McGrayne's book, chapters 8-10.}
+
+\begin{enumerate}
+
+\easysubproblem{When was experimentation introduced to medical science and who introduced it? Are you surprised that it was this recent?}\spc{1}
+
+\easysubproblem{Sir Ronald A. Fisher, the founder of modern experiments, did not believe cigarettes caused lung cancer. What were his two hypotheses for the cause of lung cancer?}\spc{2}
+
+\easysubproblem{Who invented, and what are Bayes Factors? (p116)}\spc{2}
+
+\easysubproblem{Trick question: who convinced Cornfield to stop smoking?}\spc{2}
+
+\easysubproblem{Why were frequentists at a loss to estimate the probability of a nuclear bomb being detonated by accident?}\spc{2}
+
+\easysubproblem{What is \href{https://en.wikipedia.org/wiki/Cromwell\%27s_rule}{Cromwell's Rule}? And, when applying this principle to a Bayesian model what would it imply? (See the Wikipedia link and p123).}\spc{2}
+
+\easysubproblem{Did Bayesian Statistics prevent nuclear accidents? Discuss.}\spc{5}
+
+\easysubproblem{What is the main reason why there are so many variations of Bayesian interpretation? (p129)}\spc{4}
+
+\easysubproblem{What is a large practical drawback of Bayesian inference? (See mid-end of chapter 8).}\spc{9}
+
+\end{enumerate}
+
+\problem{We will again be looking at the beta-prior, binomial-likelihood Bayesian model and practicing hypothesis testing.}
+
+
+\begin{enumerate}
+
+\intermediatesubproblem{[Also on HW\#2] Design a prior where you believe $\expe{\theta} = 0.5$ and you feel as if your belief represents information contained in five coin flips.}\spc{3}
+
+\intermediatesubproblem{You flip the same coin 100 times and you observe 39 heads. Test the hypothesis that this coin is fair given prior information from (a). Use the credible region method. Make sure you say whether you retain or reject the null and justify why.}\spc{6}
+
+\intermediatesubproblem{Test the hypothesis that this coin has a bias towards Heads (not tails) given prior information from (a) and the data from (c). Calculate the Bayesian $p$-val for the test to determine if you should retain or reject $H_0$.}\spc{6}
+
+\easysubproblem{Let's say you wanted to test whether the coin is fair but you are indifferent to any $\theta$ which is different from 0.5 by a margin of 0.1. Write out the hypotheses for this test.}\spc{3}
+
+\intermediatesubproblem{Test the hypotheses from (c) given prior information from (a) and the data from (b). Make sure you say whether you retain or reject the null and justify why.}\spc{10}
+
+
+\intermediatesubproblem{Calculate the Bayesian $p$-val for the test in (i).}\spc{4}
+
+\intermediatesubproblem{Given the tested hypotheses from (b) and data from (b), write the formula for the Bayes factor and then write the integral expression. Do not solve.}\spc{4}
+
+\easysubproblem{Assume again the prior information from (a). What is the shrinkage proportion $\rho$ for this prior when estimating $\theta$ via $\thetahatmmse$?.}\spc{2}
+
+\hardsubproblem{Prove that $\thetahatmmse$ is a biased estimator (i.e. its expectation is \textit{not} $\theta$).}\spc{4}
+
+\easysubproblem{Prove that $\displaystyle \limitn \rho = 0$ and therefore this bias $\rightarrow 0$ as your dataset gets larger.}\spc{3}
+
+\hardsubproblem{[MA] Why on Earth should anyone use shrinkage estimators if they're biased? Google it. Discuss.}\spc{3}
+
+\end{enumerate}
+
+
+\problem{This question is about a famous  extra sensory perception (ESP) experiment.}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=2.8in]{esp.jpg}
+\end{figure}
+
+According to quantum mechanics, an event should happen with exactly probability 50\%. So if someone comes with a claim that they have ESP and can affect this event with their mind, then the event no longer has probability 50\% (this is what we are trying to prove).
+
+An experiment was run with someone claiming they have ESP. They tried to affect the event with their mind. The data is as follows: of $n= 104,490,000$ observations, the number of events was $x = 52,263,970$. We will now test to see if the person has ESP a number of ways and try to reconcile the differences.
+
+\begin{enumerate}
+
+\easysubproblem{What is the MLE for the probability of the event?}\spc{1}
+
+\easysubproblem{Run a two-sided frequentist test at $\alpha = 5\%$ and report the decision (i.e. retain or reject) and the $p$ value.}\spc{4}
+
+\intermediatesubproblem{Run a two-sided Bayesian test assuming the principle of indifference. Use the equivalence region approach with $\delta = 0.01$. Report the decision (i.e. retain or reject) and the $p$ value.}\spc{6}
+
+\intermediatesubproblem{Run a two-sided Bayesian test assuming the principle of indifference. Use the credible region approach. Report the decision (i.e. retain or reject). There is no $p$ value.}\spc{6}
+
+
+\hardsubproblem{Calculate the Bayes Factor $B$ where the alternative hypothesis of $\theta \neq 0.5$ can be summed up with $\theta \sim \stduniform$.}\spc{6}
+
+
+
+\hardsubproblem{Try to reconcile parts (b), (c), (d), (e). Why are there different answers? What is going on??}\spc{6}
+\end{enumerate}
+
+
+
+
+\problem{Some quick question on mixture distributions.}
+
+\begin{enumerate}
+
+\easysubproblem{If $X$ is independent to $W$ and $X$ is independent to $Z$ and $X$ is independent to $U$, can you write $\cprob{X}{U,V,W,Y,Z}$ more compactly? Do so below.}\spc{1}
+
+\easysubproblem{Let $X$ be $\normnot{0}{1^2}$ 1/3 of the time and $\exponential{3}$ 2/3 of the time. What is its pdf?}\spc{2}
+
+
+\hardsubproblem{Let's say $X~|~\beta \sim \betanot{1}{\beta}$ where $\beta~|~\lambda \sim \exponential{\lambda}$. Write an integral expression which when solved, finds the compound / marginal density of $X$. DO NOT solve.}\spc{6}
+
+\hardsubproblem{[MA] Let's say $X~|~\theta,~\sigsq \sim \normnot{\theta}{\sigsq}$ where $\theta~|~\mu_0,~\tausq \sim \normnot{\mu_0}{\tausq}$. Write an integral expression which when solved, finds the compound / marginal density of $X$. DO NOT solve.}\spc{4}
+
+\end{enumerate}
+
+
+
+
+
+\problem{These are questions about other vague priors: improper priors and Jeffreys priors.}
+
+\begin{enumerate}
+
+\easysubproblem{What is an improper prior?}\spc{2}
+
+\easysubproblem{Is $\theta \sim \betanot{100}{0}$ improper? Yes / no and provide a proof.}\spc{4}
+
+\easysubproblem{When are improper priors \qu{legal}?}\spc{4}
+
+\easysubproblem{When are improper priors \qu{illegal}?}\spc{4}
+
+\hardsubproblem{What does $I(\theta)$ tell you about the random variable with respect to its parameter $\theta$?}\spc{5}
+
+\intermediatesubproblem{If I compute a posterior on the $\theta$ scale and then measure the parameter on another scale, will I (generally) get the same posterior probability? Yes/no explain.}\spc{4}
+
+
+\easysubproblem{What is the Jeffrey's prior for $\theta$ under the binomial likelihood? Your answer must be a distribution.}\spc{4}
+
+\hardsubproblem{What is the Jeffrey's prior for $\theta = t^{-1}(r) = \frac{e^r}{1 + e^r}$ (i.e. the log-odds reparameterization) under the binomial likelihood?}\spc{6}
+
+
+\hardsubproblem{Explain the advantage of Jeffrey's prior.}\spc{12}
+
+\hardsubproblem{[MA] Prove Jeffrey's invariance principle i.e. prove that the Jeffrey's prior makes your prior probability immune to transformations. Use the second proof from class.}\spc{12}
+
+\end{enumerate}
+
+
+\problem{This question is about \qu{batting averages} in baseball.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=3.8in]{baseball.jpg}
+\end{figure}
+
+\noindent Every hitter's \emph{sample} batting average (BA) is defined as:
+
+\beqn
+BA := \frac{\text{sample \# of hits}}{\text{sample \# of at bats}}
+\eeqn
+
+In this problem we care about estimating a hitter's \emph{true} batting average which we call $\theta$. Each player has a different $\theta$ but we focus in this problem on one specific player. In order to estimate the player's true batting average, we make use of the sample batting average as defined above (with Bayesian modifications, of course). 
+
+We assume that each at bat (for any player) are conditionally $\iid$ based on the players' true batting average, $\theta$. So if a player has $n$ at bats, then each successful hit in each at bat can be modeled via $X_1~|~\theta, ~X_2~|~\theta, \ldots, ~X_n~|~\theta \iid \bernoulli{\theta}$ i.e. the standard assumption.}
+
+\begin{enumerate}
+
+\easysubproblem{Looking at the entire dataset for 6,061 batters who had 100 or more at bats, I fit the beta distribution PDF to the sample batting averages using the maximum likelihood approach and I'm estimating $\alpha = 42.3$ and $\beta = 127.7$ (which we will call the \qu{empirical Bayes} estimates in class). Consider building a prior from this estimate as $\theta \sim \betanot{42.3}{127.7}$ Would a prior based on these hyperparameter estimates be \qu{objective}? Yes / No. Why?}\spc{1}
+
+\easysubproblem{Using prior data to build the prior is called...}\spc{0}
+
+\easysubproblem{Is the prior from (a) considered a \qu{conjugate prior}? Yes / No.}\spc{0.5}
+
+\easysubproblem{Using the prior from (a), find the $\thetahatmmse$.}\spc{0.5}
+
+\hardsubproblem{We now observe four at bats for a new player and there were no hits. Write an exact expression for the batter getting 14 or more hits on the next 20 at bats. You can leave your answer in terms of the beta function. Do not compute explicitly.} \spc{5}
+
+\end{enumerate}
+
+\problem{We will now have lots of examples finding kernels from common distributions. Some of these questions are silly, but they will force you to think hard about what the kernel is under different situations. And... they're fun!}
+
+\begin{enumerate}
+
+\easysubproblem{What is the kernel of $X~|~\theta,~n \sim \binomial{n}{\theta}$?}\spc{3}
+
+\hardsubproblem{What is the kernel of $X, n~|~\theta \sim \binomial{n}{\theta}$? Be careful...}\spc{3}
+
+\easysubproblem{What is the kernel of $X~|~\theta \sim \poisson{\theta}$?}\spc{3}
+
+\hardsubproblem{What is the kernel of $\theta~|~X \sim \poisson{\theta}$? Be careful...}\spc{3}
+
+\easysubproblem{What is the kernel of $X~|~\alpha,~\beta \sim \stdbetanot$?}\spc{4}
+
+\easysubproblem{What is the kernel of $X~|~\theta \sim \exponential{\theta}$?}\spc{4}
+
+\easysubproblem{What is the kernel of $X~|~\theta,~\sigsq \sim \normnot{\theta}{\sigsq}$?}\spc{4}
+
+\hardsubproblem{What is the kernel of $\theta,~\sigsq~|~X \sim \normnot{\theta}{\sigsq}$? Be careful...}\spc{4}
+
+\intermediatesubproblem{[MA] What is the kernel of 
+
+\beqn
+X~|~N,~\theta,~n \sim \hypergeometric{N}{\theta}{n} := {{{ \theta \choose x} {{N-\theta} \choose {n-x}}}\over {N \choose n}}
+\eeqn
+
+where $N$ is the number of total balls in the bag, $\theta$ is the number of success balls in the bag and $n$ is the number drawn out of the bag?}\spc{9}
+
+%\hardsubproblem{[MA] If $X~|~\theta,~\sigsq \sim \normnot{\theta}{\sigsq}$ and $\theta~|~\mu_0,~\tausq \sim \normnot{\mu_0}{\tausq}$, what is the kernel of $\theta~|~X,~\sigsq,~\mu_0,~\tausq$?}\spc{6}
+
+\end{enumerate}
+
+\end{document}
+
+%\problem{This problem is concerned with the \qu{Epistemic View} of probability --- this is the view that probabilities are inherently living inside the minds of human beings who are forced to grapple with uncertainty as they see it. One definition is the \textbf{Logical} definition which means that given the same information, everyone would come to the same conclusion. The logical definition requires the principle of indifference.}
+%
+%\begin{enumerate}
+%
+%\easysubproblem{
+%We will now go about showing that the principle of indifference has a tenuous foundation thereby rendering the logical theory of probability inadequate. We begin with demonstrating a paradox in the logical definition for a discrete set of $\theta_0$. \\
+%
+%Imagine you have a library with thousands of books but all are either red, green, yellow or purple but you don't know the proportions of the books' colors. Imagine you are blindfolded and select a random book and you are only interested if it's \textit{red} or \textit{not red}. According to the principle of indifference, what is your prior probability that the book is red? Remember, $|\Theta_0|  = 2$ here.}\spc{2}
+%
+%\easysubproblem{Imagine you are blindfolded and select a random book and you are interested if it's red, green, yellow or purple. According to the principle of indifference, what is your prior probability that the book is red? Remember, $|\Theta_0|  = 4$ here.}\spc{1}
+%
+%
+%\intermediatesubproblem{Why do (a) and (b) constitute a paradox? Does this limit the application of the principle of indifference?}\spc{4}
+%
+%\end{enumerate}
+
+
+
+
