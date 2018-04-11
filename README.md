@@ -50,7 +50,7 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 
 * Midterm I Monday, March 5 (in class).
 
-* Midterm II Wednesday, April 18 (in class).
+* Midterm II Monday, April 16 (in class).
 
 * Final Wednesday, May 23 8:30-10:30AM (in class, KY326)
 
@@ -66,8 +66,9 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 
 * Midterm II
 
-[(practice exam 1)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 1 solutions)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2_solutions.pdf)
-[(practice exam 2)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 2 solutions)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2_solutions.pdf) Problem 1a--d and ...
+[(practice exam 1)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 1 solutions)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2_solutions.pdf) Omit 1g,h. The concepts in 1i-k will be tested but not the specifics. Omit 2a
+
+[(practice exam 2)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 2 solutions)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2_solutions.pdf) Omit problem 1e,f. Omit problem 2. Omit problem 3h-l.
 
 * Final
 
