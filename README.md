@@ -38,8 +38,8 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 * Homework 9 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw09/hw09.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw09/hw09.pdf) (due 12/12)
 * Homework 8 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw08/hw08.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw08/hw08.pdf) (due 12/2)
 * Homework 7 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw07/hw07.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw07/hw07.pdf) (due 11/23)
-* Homework 6 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw06/hw06.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw06/hw06.pdf) (due 12/19)
-* Homework 5 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw05/hw05.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw05/hw05.pdf) (due 11/30)-->
+* Homework 6 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw06/hw06.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw06/hw06.pdf) (due 12/19)-->
+* Homework 5 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw05/hw05.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw05/hw05.pdf) (due 5/4)
 * Homework 4 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw04/hw04.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw04/hw04.pdf) (due 4/13)
 * Homework 3 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw03/hw03.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw03/hw03.pdf) (due 3/16)
 * Homework 2 [(download)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw02/hw02.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/homeworks/hw02/hw02.pdf) (due 3/2)
@@ -50,7 +50,11 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 
 * Midterm I Monday, March 5 (in class).
 
+[(exam)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm1/midterm1.pdf) [(exam solutions)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm1/midterm1_solutions.pdf)
+
 * Midterm II Monday, April 16 (in class).
+
+[(exam)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm2/midterm2.pdf) [(exam solutions)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm2/midterm2_solutions.pdf)
 
 * Final Wednesday, May 23 8:30-10:30AM (in class, KY326)
 
@@ -59,14 +63,11 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 
 * Midterm I
 
-[(exam)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm1/midterm1.pdf) [(exam solutions)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm1/midterm1_solutions.pdf)
 [(practice exam 1)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm1/midterm1.pdf) [(practice exam 1 solutions)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm1/midterm1_solutions.pdf)
 [(practice exam 2)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm1/midterm1.pdf) [(practice exam 2 solutions)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm1/midterm1_solutions.pdf)
 
-
 * Midterm II
 
-[(exam)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm2/midterm2.pdf) [(exam solutions)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/midterm2/midterm2_solutions.pdf)
 [(practice exam 1)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 1 solutions)](https://github.com/kapelner/QC_Math_341_Spring_2017/blob/master/exams/midterm2/midterm2_solutions.pdf) Omit 1g,h. The concepts in 1i-k will be tested but not the specifics. Omit 2a
 
 [(practice exam 2)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2.pdf) [(practice exam 2 solutions)](https://github.com/kapelner/QC_Math_390.03-02_Spr_2016/blob/master/exams/midterm2/midterm2_solutions.pdf) Omit problem 1e,f. Omit problem 2. Omit problem 3h-l.
