@@ -6,8 +6,8 @@ This is the course homepage for Math 341 (and Masters level 650.3-01) for the Sp
 
 My lectures can be listened to as youtube tracks [(all lectures)](https://www.youtube.com/playlist?list=PLIwvCnCDnF17PZneWBd6lRSaPb_1E4bcs) and lecture notes are also scanned in as PDF files contributed by students and myself.
 
-<!--
-* Lecture 23 [(audio)](https://youtu.be/sBA4Lf_5kUU) [(Alassane Ngaide)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/lectures/lec23ngaide.pdf) [(Prof)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/lectures/lec23kap.pdf) -->
+<!-- -->
+* Lecture 23 [(audio)](https://youtu.be/9GeC_FPYH7w) [(Prof)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/lectures/lec23kap.pdf)
 * Lecture 22 [(audio)](https://youtu.be/abi5-aJbe9M) [(Prof)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/lectures/lec22kap.pdf) 
 * Lecture 21 [(audio)](https://youtu.be/BPMa0tKOIEk) [(Prof)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/lectures/lec21kap.pdf)  
 * Lecture 20 [(audio)](https://youtu.be/44CEVtBkOI8) [(Edwin Figueroa)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/lectures/lec20figueroa.pdf) [(Prof)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/lectures/lec20kap.pdf)
