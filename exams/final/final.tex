@@ -1,0 +1,377 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\title{Math 341 / 650 Spring 2018 \\ Final Examination}
+\author{Professor Adam Kapelner}
+
+\date{Wednesday, May 23, 2018}
+
+\begin{document}
+\maketitle
+
+\noindent Full Name \line(1,0){410}
+
+\thispagestyle{empty}
+
+\section*{Code of Academic Integrity}
+
+\footnotesize
+Since the college is an academic community, its fundamental purpose is the pursuit of knowledge. Essential to the success of this educational mission is a commitment to the principles of academic integrity. Every member of the college community is responsible for upholding the highest standards of honesty at all times. Students, as members of the community, are also responsible for adhering to the principles and spirit of the following Code of Academic Integrity.
+
+Activities that have the effect or intention of interfering with education, pursuit of knowledge, or fair evaluation of a student's performance are prohibited. Examples of such activities include but are not limited to the following definitions:
+
+\paragraph{Cheating} Using or attempting to use unauthorized assistance, material, or study aids in examinations or other academic work or preventing, or attempting to prevent, another from using authorized assistance, material, or study aids. Example: using an unauthorized cheat sheet in a quiz or exam, altering a graded exam and resubmitting it for a better grade, etc.
+\\
+
+\noindent I acknowledge and agree to uphold this Code of Academic Integrity. \\
+
+\begin{center}
+\line(1,0){250} ~~~ \line(1,0){100}\\
+~~~~~~~~~~~~~~~~~~~~~signature~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ date
+\end{center}
+
+\normalsize
+
+\section*{Instructions}
+
+This exam is 120 minutes and closed-book. You are allowed \textbf{three} pages (front and back) of a \qu{cheat sheet.} You may use a graphing calculator of your choice. Please read the questions carefully. If the question reads \qu{compute,} this means the solution will be a number otherwise you can leave the answer in \textit{any} widely accepted mathematical notation which could be resolved to an exact or approximate number with the use of a computer. I advise you to skip problems marked \qu{[Extra Credit]} until you have finished the other questions on the exam, then loop back and plug in all the holes. I also advise you to use pencil. The exam is 100 points total plus extra credit. Partial credit will be granted for incomplete answers on most of the questions. \fbox{Box} in your final answers. Good luck!
+
+\pagebreak
+
+
+\begin{table}[htp]
+\centering
+\small
+\begin{tabular}{l | llll}
+Distribution                  & Quantile  & PMF / PDF  &CDF       & Sampling  \\ 
+of r.v. &  Function & function         & function &  Function \\ \hline
+beta & \texttt{qbeta}($p$, $\alpha$, $\beta$)             
+& \texttt{d-}($x$, $\alpha$, $\beta$)
+& \texttt{p-}($x$, $\alpha$, $\beta$) 
+& \texttt{r-}($\alpha$, $\beta$) \\
+betabinomial & \texttt{qbetabinom}($p$, $n$, $\alpha$, $\beta$)              
+& \texttt{d-}($x$, $n$, $\alpha$, $\beta$)
+& \texttt{p-}($x$, $n$, $\alpha$, $\beta$) 
+& \texttt{r-}($n$, $\alpha$, $\beta$) \\
+
+betanegativebinomial & \texttt{qbeta\_nbinom}($p$, $r$, $\alpha$, $\beta$) 
+& \texttt{d-}($x$, $r$, $\alpha$, $\beta$)
+& \texttt{p-}($x$, $r$, $\alpha$, $\beta$) 
+& \texttt{r-}($r$, $\alpha$, $\beta$) \\
+
+binomial & \texttt{qbinom}($p$, $n$, $\theta$) 
+& \texttt{d-}($x$, $n$, $\theta$)
+& \texttt{p-}($x$, $n$, $\theta$) 
+& \texttt{r-}($n$, $\theta$) \\
+
+exponential & \texttt{qexp}($p$, $\theta$) 
+& \texttt{d-}($x$, $\theta$) 
+& \texttt{p-}($x$, $\theta$) 
+& \texttt{r-}($\theta$) \\
+
+gamma & \texttt{qgamma}($p$, $\alpha$, $\beta$) 
+& \texttt{d-}($x$, $\alpha$, $\beta$)
+& \texttt{p-}($x$, $\alpha$, $\beta$) 
+& \texttt{r-}($\alpha$, $\beta$) \\
+
+geometric & \texttt{qgeom}($p$, $\theta$) 
+& \texttt{d-}($x$, $\theta$)
+& \texttt{p-}($x$, $\theta$) 
+& \texttt{r-}($\theta$) \\
+
+inversegamma & \texttt{qinvgamma}($p$, $\alpha$, $\beta$) 
+& \texttt{d-}($x$, $\alpha$, $\beta$)
+& \texttt{p-}($x$, $\alpha$, $\beta$) 
+& \texttt{r-}($\alpha$, $\beta$) \\
+
+negative-binomial & \texttt{qnbinom}($p$, $r$, $\theta$) 
+& \texttt{d-}($x$, $r$, $\theta$) 
+& \texttt{p-}($x$, $r$, $\theta$) 
+& \texttt{r-}($r$, $\theta$) \\
+
+normal (univariate) & \texttt{qnorm}($p$, $\theta$, $\sigma$) 
+& \texttt{d-}($x$, $\theta$, $\sigma$)
+& \texttt{p-}($x$, $\theta$, $\sigma$) 
+& \texttt{r-}($\theta$, $\sigma$) \\
+
+%normal (multivariate) & 
+%& \multicolumn{2}{l}{\texttt{dmvnorm}($\x$, $\muvec$, $\bSigma$)} 
+%& \texttt{r-}($\muvec$, $\bSigma$) \\
+
+poisson & \texttt{qpois}($p$, $\theta$) 
+& \texttt{d-}($x$, $\theta$)
+& \texttt{p-}($x$, $\theta$) 
+& \texttt{r-}($\theta$) \\
+
+T (standard) & \texttt{qt}($p$, $\nu$) 
+& \texttt{d-}($x$, $\nu$) 
+& \texttt{p-}($x$, $\nu$)
+& \texttt{r-}($\nu$) \\
+
+%T (nonstandard) & \texttt{qt.scaled}($p$, $\nu$, $\mu$, $\sigma$) 
+%& \texttt{d-}($x$, $\nu$, $\mu$, $\sigma$)
+%& \texttt{p-}($x$, $\nu$, $\mu$, $\sigma$) 
+%& \texttt{r-}($\nu$, $\mu$, $\sigma$) \\
+
+uniform & \texttt{qunif}($p$, $a$, $b$) 
+& \texttt{d-}($x$, $a$, $b$)
+& \texttt{p-}($x$, $a$, $b$) 
+& \texttt{r-}($a$, $b$) \\
+
+
+\end{tabular}
+\caption{Functions from $\texttt{R}$ (in alphabetical order) that can be used on this exam. The hyphen in colums 3, 4 and 5 is shorthand notation for the full text of the r.v. which can be found in column 2.
+}
+\label{tab:eqs}
+\end{table}
+
+
+\problem Imagine you draw $n$ balls out of a bag with $N$ total balls and $\theta$ of those balls are special (leaving $N-\theta$ not special balls). The number of special balls out of the $n$ sampled is given by $x$. This is called the hypergeometric model; it is a discrete r.v. and it has the PMF:
+
+\beqn
+X \sim \text{Hyper}(n, \theta, N) := \frac{\displaystyle\binom{\theta}{x} \displaystyle\binom{N - \theta}{n - x}}{\displaystyle\binom{N}{n}}.
+\eeqn
+
+For the remainder of this problem, the total number of balls $N$ is known and the number that you sample $n$ is also known. The unknown is $\theta$ and that is the target of inference. Its support is $\braces{1, 2, \ldots, N-1}$.
+
+\benum
+
+\subquestionwithpoints{5} What is the prior of indifference for $\theta$?\spc{5}
+
+\subquestionwithpoints{5} Using the prior from (b), find the kernel of $\cprob{\theta}{X}$. If you didn't get the answer to (a), assume $\prob{\theta} \propto 1$ for the purposes of this problem.\spc{5}
+
+\subquestionwithpoints{7} [Extra Credit] Show that the posterior is beta-binomial and find its parameters.\spc{15}
+
+\eenum
+
+\problem Consider the normal likelihood model with a sample size of $n$ where $\theta$ is known but $\sigsq$ is unknown.
+
+\benum
+
+\subquestionwithpoints{5} What is the conjugate prior for $\sigsq$ in this case?\spc{1}
+
+\subquestionwithpoints{5} What is the interpretation of the hyperparameters --- what pseudodata do they represent?\spc{2}
+
+\subquestionwithpoints{5} After data is sampled, what is the posterior (i.e. given $\theta$ and $\Xoneton$) MMSE estimate for $\sigsq$? Define any shorthand symbols explicitly.\spc{2}
+
+\subquestionwithpoints{7} Prove this is a shrinkage estimator and find $\rho$.\spc{4}
+
+\subquestionwithpoints{7} Write an integral that when evaluated would find $\cprob{X^*}{\Xoneton}$.\spc{6}
+
+\eenum
+
+\problem Consider the independent Poisson model where the mean is a linear function of time but zero at inception i.e. $X_t \inddist \poisson{\theta t}$ with $n$ independent samples. We employ the prior $\prob{\theta} \propto 1$.
+
+\benum
+
+\subquestionwithpoints{2} Is the prior for $\theta$ proper? Yes / no.\spc{-0.7}
+
+
+\subquestionwithpoints{5} Try to find the posterior i.e. $\theta$ given $\Xoneton, t_1, t_2, \ldots, t_n$. Get as far as you can.\spc{3}
+
+%\subquestionwithpoints{10} Describe a means to find test if $\theta > 0$.\spc{3}
+
+\subquestionwithpoints{5} Consider now the independent Poisson model where the mean is a linear function of time but one at inception i.e. $X_t \inddist \poisson{1 + \theta t}$. We employ the prior $\prob{\theta} \propto 1$. Try to find the posterior; get as far as you can.\spc{3}
+
+
+\subquestionwithpoints{8} Describe a means to test if $\theta > 0$ \emph{approximately} using grid sampling. You can assume that we are fairly certain that $\abss{\theta} \leq 100$. Full credit only given to answers that provide all details of the computation.\spc{10}
+
+\subquestionwithpoints{5} Will the test in (d) be nearly exact? Or will it suffer from the disadvantage of grid sampling? Explain.\spc{3}
+
+
+
+\eenum
+
+
+\problem Recall the mixture model of two normals:
+
+\beqn
+\Xoneton \iid \rho \normpdf{x}{\theta_1}{\sigsq_1} + (1-\rho)\normpdf{x}{\theta_2}{\sigsq_2}
+\eeqn
+
+We employed the uninformative priors $\prob{\rho} \propto 1$, $\prob{\theta_1} \propto 1$, $\prob{\theta_2} \propto 1$, $\prob{\sigsq_1} \propto 1 / \sigsq_1$ and $\prob{\sigsq_2} \propto 1 / \sigsq_2$ but could not solve the problem because the kernel for the posterior did not reduce to a managable expression. \\
+
+We the introduced \qu{data augmentation} where we pretended that each $x_i$ belonged to either the first normal distribution or the second based on the value of the indicator $I_i$ which is 1 if from the first distribution. We then found the kernel of the posterior,
+
+\beqn
+&& \cprob{\theta_1, \theta_2, \sigsq_1, \sigsq_2, \rho, I_1, \ldots, I_n}{X_1, \ldots, X_n} \propto \\
+&& \oneover{\sigsq_1 \sigsq_2}\prod_{i=1}^n \tothepow{\normpdf{x}{\theta_1}{\sigsq_1}}{I_i} \tothepow{\normpdf{x}{\theta_2}{\sigsq_2}}{1 - I_i} \rho^{I_i} (1 - \rho)^{1 - I_i} 
+\eeqn
+
+\noindent We were then able to find all conditional distributions,
+
+\beqn
+&& \cprob{\theta_1}{X_1, \ldots, X_n, \theta_2, \sigsq_1, \sigsq_2, \rho, I_1, \ldots, I_n} \\
+&& \cprob{\theta_2}{X_1, \ldots, X_n, \theta_1, \sigsq_1, \sigsq_2, \rho, I_1, \ldots, I_n} \\
+&& \cprob{\sigsq_1}{X_1, \ldots, X_n, \theta_1, \theta_2, \sigsq_2, \rho, I_1, \ldots, I_n} \\
+&& \cprob{\sigsq_2}{X_1, \ldots, X_n, \theta_1, \theta_2, \sigsq_1, \rho, I_1, \ldots, I_n} \\
+&& \cprob{I_1}{X_1, \ldots, X_n, \theta_1, \theta_2, \sigsq_1, \sigsq_2, \rho, I_2, \ldots, I_n} \\
+&& \vdots \\
+&& \cprob{I_n}{X_1, \ldots, X_n, \theta_1, \theta_2, \sigsq_1, \sigsq_2, \rho, I_1, \ldots, I_{n - 1}},
+\eeqn
+
+\noindent and all were easy to sample from. Hence we built a Gibbs sampler. After burning and thinning, we arrive at the following samples. The plot on the bottom right is the samples for $I_6$.\spc{4}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=4.5in]{gibbs_res}
+\end{figure}
+\FloatBarrier
+
+\benum
+\vspace{-1.0cm}
+\subquestionwithpoints{7} Assume there were $n = 300$ samples. Create an approximate 95\% credible region for the number of samples that were drawn from the first distribution, the normal with mean $\theta_1$ and variance $\sigsq_1$. \spc{1}
+
+\subquestionwithpoints{4} Approximate the probability that the 6th observation came from the first distribution. \spc{0}
+
+\subquestionwithpoints{3} Find $\hat{I}_{6, MAP}$. \spc{0}
+
+\subquestionwithpoints{5} Test $\sigsq_1 > 2$. \spc{2}
+
+\subquestionwithpoints{7} In finance, the Sharpe ratio is a useful indicator and it is defined as $\frac{\theta - r_f}{\sigma}$ where $r_f$ is a constant. Explain how you would use this Gibbs chain to find the posterior of the Sharpe ratio of the first distribution.\spc{5}
+
+\subquestionwithpoints{10} Explain how you would draw one sample ($n^* = 1$) from $\cprob{X^*}{\Xoneton}$ using the Gibbs chain. \spc{5}
+
+\subquestionwithpoints{3} [Extra Credit] The alternative to data augmentation is to use the posterior directly and use 5 Metropolis steps in the sampler: one for $\theta_1$, one for $\theta_2$, one for $\sigsq_1$, one for $\sigsq_2$ and one for $\rho$. Why would this be worse than using the Gibbs sampler with the data augmentation? \spc{6}
+
+
+\eenum
+
+
+\end{document}
+
+
+
+
+It is a dirty secret in car dealerships that everyone gets a slightly different price based on the negotiations that go on behind closed doors. Here are 20 sale prices of new 2018 Honda Accords at a car dealership in Queens:
+
+\begin{verbatim}
+31700 32400 31100 33500 30700 32700 31100 31700 33500 32900
+32900 32200 32400 33100 31200 33000 33400 34600 31700 33100 
+\end{verbatim}
+
+\noindent Computing the sample average and standard deviation and rounding, we get $\xbar = \$33,000$ and $s = \$900$. We'll assume that the final negotiated price is distributed normally because it's most likely the sum of many different negotiation factors.
+
+\benum
+
+\subquestionwithpoints{5} 
+
+\eenum
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem Sometimes the normal likelihood is parameterized by:
+
+\beqn
+X \sim \normnot{\theta}{\rho} := \sqrt{\frac{\rho}{2\pi}} \exp{-\frac{\rho}{2} (X - \theta)^2}
+\eeqn
+
+\noindent where $\rho = 1/\sigsq$ and is called the \qu{precision}. Show
+
+
+\problem This question is about car purchasing.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=2.3in]{accord.jpg}
+\end{figure}
+
+It is a dirty secret in car dealerships that everyone gets a slightly different price based on the negotiations that go on behind closed doors. Here are 20 sale prices of new 2018 Honda Accords at a car dealership in Queens:
+
+\begin{verbatim}
+31700 32400 31100 33500 30700 32700 31100 31700 33500 32900
+32900 32200 32400 33100 31200 33000 33400 34600 31700 33100 
+\end{verbatim}
+
+\noindent Computing the sample average and standard deviation and rounding, we get $\xbar = \$33,000$ and $s = \$900$. We'll assume that the final negotiated price is distributed normally because it's most likely the sum of many different negotiation factors.
+
+\benum
+
+\subquestionwithpoints{5} Given an uninformative prior for $\theta$ and assuming $\sigma = s$, what is the posterior for $\theta$ given the data above? Provide numerical values for the parameters. \spc{1}
+
+\subquestionwithpoints{3} Find $\thetahatmae$. \spc{1}
+
+\subquestionwithpoints{5} Compute the shrinkage factor $\rho$ for the point estimate you computed for $\theta$ in (b). \spc{1}
+
+\subquestionwithpoints{8} Given this data and your prior, what is the probability you pay more than \$35,200 for your car? Estimate the numerical probability (do \textit{not} express your final answer using functions from Table~\ref{tab:eqs}). \spc{5}
+
+\eenum
+
+
+
+\problem This question is about \qu{batting averages} in baseball.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=2.8in]{baseball.jpg}
+\end{figure}
+
+\noindent Every hitter's \emph{sample} batting average (BA) is defined as:
+
+\beqn
+BA := \frac{\text{sample \# of hits}}{\text{sample \# of at bats}}
+\eeqn
+
+Let a hitter's \emph{true} batting average be called $\theta$. Each player has a different $\theta$ but we focus in this problem on one specific player. 
+
+We assume that each at bat (for any player) are conditionally $\iid$ based on the players' true batting average, $\theta$. So if a player has $n$ at bats, then each successful hit in each at bat can be modeled via $X_1~|~\theta, ~X_2~|~\theta, \ldots, ~X_n~|~\theta \iid \bernoulli{\theta}$ i.e. the standard assumption.
+
+What she we use as a prior? Looking at the entire dataset for 6,061 batters who had 100 or more at bats, I fit the beta distribution PDF to the sample batting averages using the maximum likelihood approach and I'm estimating $\alpha = 42.3$ and $\beta = 127.7$
+
+\benum
+
+\subquestionwithpoints{4} Would this prior be uniformative? Yes / no and why. \spc{1}
+
+\subquestionwithpoints{9} A new draft pick starts his career with 10 at bats of which 9 are hits. \\
+
+Using only this small sample and the prior, test whether or not he is \qu{better than average} where the \qu{average} is determined by the historical average of players that came before him. You can express your answer using functions from Table~\ref{tab:eqs} if necessary. Note: without a computer you will not be able to compute the $p$-value. \spc{4}
+
+
+\subquestionwithpoints{3} Without computing the Bayesian $p$-value in (b) are you able to determine if the null is rejected? Yes / no.\spc{-0.7}
+
+\subquestionwithpoints{9} Derive an expression for the Bayes factor for the null and alternative in (b). You can express your answer using functions from Table~\ref{tab:eqs} if necessary or make sure the expression can be computed via numerical integration (i.e. no symbols are allowed). \spc{6}
+
+
+\subquestionwithpoints{9} Using only this small sample and the prior, derive an expression for the probability that he will have more than 9 hits out of the next 15 at bats. You can express your answer using functions from Table~\ref{tab:eqs} if necessary. \spc{4}
+
+
+\eenum
+
+\problem Consider the exponential model $\Xoneton \iid \exponential{\theta} := \theta e^{-\theta x}$.
+
+\benum
+
+\subquestionwithpoints{5} Derive $f_{\Xoneton}(\Xoneton; \theta)$ i.e. the joint density function for all $\Xoneton$ and simplify.  \spc{2}
+
+\subquestionwithpoints{3} Is your answer in (a) the same as $\mathcal{L}(\theta; \Xoneton)$, i.e. the likelihood function? Yes / No. \spc{-0.7}
+
+
+\subquestionwithpoints{8} Demonstrate that the conjugate model for the exponential likelihood is gamma. Find the values of the posterior parameters given the prior parameters are the standard $\alpha$ and $\beta$. \spc{8}
+
+
+\subquestionwithpoints{8} Using your answers from (a) and (b), derive the Fisher information for $\theta$ given $\Xoneton$ and simplify. To do so, you may need to know the expectation of the exponentia distribution. Here it is: if $W \sim \exponential{\theta}$  then $\expe{W} = \oneover{\theta}$. \spc{4}
+
+
+\subquestionwithpoints{8} Demonstrate that the Jeffrey's prior for the exponential likelihood can be expressed using the gamma PDF function and find the numerical values of its hyperparameters. \spc{3}
+
+
+\subquestionwithpoints{2}Is the Jeffrey's prior for the exponential model \textit{proper}? Yes / no.\spc{-0.7}
+
+\subquestionwithpoints{4} Given the Jeffrey's prior and a sample of $n=3$ with values $3.6, 1.2, 5.9$ find an expression for $\thetahatmap$. You can express your answer using functions from Table~\ref{tab:eqs} if necessary otherwise round to two digits. If you did not find Jeffery's prior, use the Haldane prior instead.\spc{2}
+
+
+\subquestionwithpoints{4} Given the Jeffrey's prior and a sample of $n=3$ with values $3.6, 1.2, 5.9$ find an expression for $\thetahatmae$. You can express your answer using functions from Table~\ref{tab:eqs} if necessary otherwise round to two digits. If you did not find Jeffery's prior, use the Haldane prior instead.\spc{1.5}
+
+
+\subquestionwithpoints{3} If you employ the Haldane prior for the exponential likelihood model, is the posterior \textit{always proper}? Yes / no.\spc{-0.7}
+
+\eenum
+
+
+
+\end{document}
+

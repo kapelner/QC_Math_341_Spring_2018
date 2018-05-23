@@ -54,6 +54,7 @@ My lectures can be listened to as youtube tracks [(all lectures)](https://www.yo
 
 * Final Wednesday, May 23 8:30-10:30AM (in class, KY326)
 
+[(exam)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/final/final.pdf) [(exam solutions)](https://github.com/kapelner/QC_Math_341_Spring_2018/blob/master/exams/final/final_solutions.pdf)
 
 ## Practice Exams
 
